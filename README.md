@@ -4,7 +4,7 @@
 <p align="center"><a href="#features">Features</a> section describes in detail about Resty capabilities</p>
 </p>
 <p align="center">
-<p align="center"><a href="https://github.com/kot0/resty/actions/workflows/ci.yml?query=branch%3Amaster"><img src="https://github.com/kot0/resty/actions/workflows/ci.yml/badge.svg" alt="Build Status"></a> <a href="https://codecov.io/gh/go-resty/resty/branch/master"><img src="https://codecov.io/gh/go-resty/resty/branch/master/graph/badge.svg" alt="Code Coverage"></a> <a href="https://goreportcard.com/report/go-resty/resty"><img src="https://goreportcard.com/badge/go-resty/resty" alt="Go Report Card"></a> <a href="https://github.com/kot0/resty/releases/latest"><img src="https://img.shields.io/badge/version-2.7.0-blue.svg" alt="Release Version"></a> <a href="https://pkg.go.dev/github.com/kot0/resty/v2"><img src="https://pkg.go.dev/badge/github.com/kot0/resty" alt="GoDoc"></a> <a href="LICENSE"><img src="https://img.shields.io/github/license/go-resty/resty.svg" alt="License"></a> <a href="https://github.com/avelino/awesome-go"><img src="https://awesome.re/mentioned-badge.svg" alt="Mentioned in Awesome Go"></a></p>
+<p align="center"><a href="https://github.com/kot0/resty/actions/workflows/ci.yml?query=branch%3Amaster"><img src="https://github.com/kot0/resty/actions/workflows/ci.yml/badge.svg" alt="Build Status"></a> <a href="https://codecov.io/gh/kot0/resty/branch/master"><img src="https://codecov.io/gh/kot0/resty/branch/master/graph/badge.svg" alt="Code Coverage"></a> <a href="https://goreportcard.com/report/kot0/resty"><img src="https://goreportcard.com/badge/kot0/resty" alt="Go Report Card"></a> <a href="https://github.com/kot0/resty/releases/latest"><img src="https://img.shields.io/badge/version-2.7.0-blue.svg" alt="Release Version"></a> <a href="https://pkg.go.dev/github.com/kot0/resty/v2"><img src="https://pkg.go.dev/badge/github.com/kot0/resty" alt="GoDoc"></a> <a href="LICENSE"><img src="https://img.shields.io/github/license/kot0/resty.svg" alt="License"></a> <a href="https://github.com/avelino/awesome-go"><img src="https://awesome.re/mentioned-badge.svg" alt="Mentioned in Awesome Go"></a></p>
 </p>
 <p align="center">
 <h4 align="center">Resty Communication Channels</h4>
@@ -171,7 +171,7 @@ Response Info:
     "headers": {
       "Accept-Encoding": "gzip",
       "Host": "httpbin.org",
-      "User-Agent": "go-resty/2.4.0 (https://github.com/kot0/resty)",
+      "User-Agent": "kot0/2.4.0 (https://github.com/kot0/resty)",
       "X-Amzn-Trace-Id": "Root=1-5f5ff031-000ff6292204aa6898e4de49"
     },
     "origin": "0.0.0.0",
@@ -267,7 +267,7 @@ resp, err := client.R().
 // POST of raw bytes for file upload. For example: upload file to Dropbox
 fileBytes, _ := ioutil.ReadFile("/Users/jeeva/mydocument.pdf")
 
-// See we are not setting content-type header, since go-resty automatically detects Content-Type for you
+// See we are not setting content-type header, since kot0 automatically detects Content-Type for you
 resp, err := client.R().
       SetBody(fileBytes).
       SetContentLength(true).          // Dropbox expects this value
@@ -294,7 +294,7 @@ client := resty.New()
 // No need to set auth token, error, if you have client level settings
 resp, err := client.R().
       SetBody(Article{
-        Title: "go-resty",
+        Title: "kot0",
         Content: "This is my article content, oh ya!",
         Author: "Jeevanandam M",
         Tags: []string{"article", "sample", "resty"},
@@ -789,7 +789,7 @@ client.SetHeaders(map[string]string{
 
 // Cookies for all request
 client.SetCookie(&http.Cookie{
-      Name:"go-resty",
+      Name:"kot0",
       Value:"This is cookie value",
       Path: "/",
       Domain: "sample.com",
@@ -895,7 +895,7 @@ BTW, I'd like to know what you think about `Resty`. Kindly open an issue or send
 
 ## Core Team
 
-Have a look on [Members](https://github.com/orgs/go-resty/people) page.
+Have a look on [Members](https://github.com/orgs/kot0/people) page.
 
 ## Contributors
 

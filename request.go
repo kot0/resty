@@ -422,8 +422,8 @@ func (r *Request) SetContentLength(l bool) *Request {
 // For Example:
 //		Authorization: Basic <base64-encoded-value>
 //
-// To set the header for username "go-resty" and password "welcome"
-// 		client.R().SetBasicAuth("go-resty", "welcome")
+// To set the header for username "kot0" and password "welcome"
+// 		client.R().SetBasicAuth("kot0", "welcome")
 //
 // This method overrides the credentials set by method `Client.SetBasicAuth`.
 func (r *Request) SetBasicAuth(username, password string) *Request {
@@ -559,7 +559,7 @@ func (r *Request) SetJSONEscapeHTML(b bool) *Request {
 
 // SetCookie method appends a single cookie in the current request instance.
 // 		client.R().SetCookie(&http.Cookie{
-// 					Name:"go-resty",
+// 					Name:"kot0",
 // 					Value:"This is cookie value",
 // 				})
 //
@@ -574,11 +574,11 @@ func (r *Request) SetCookie(hc *http.Cookie) *Request {
 // SetCookies method sets an array of cookies in the current request instance.
 // 		cookies := []*http.Cookie{
 // 			&http.Cookie{
-// 				Name:"go-resty-1",
+// 				Name:"kot0-1",
 // 				Value:"This is cookie 1 value",
 // 			},
 // 			&http.Cookie{
-// 				Name:"go-resty-2",
+// 				Name:"kot0-2",
 // 				Value:"This is cookie 2 value",
 // 			},
 // 		}

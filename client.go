@@ -64,7 +64,7 @@ var (
 	jsonCheck = regexp.MustCompile(`(?i:(application|text)/(json|.*\+json|json\-.*)(;|$))`)
 	xmlCheck  = regexp.MustCompile(`(?i:(application|text)/(xml|.*\+xml)(;|$))`)
 
-	hdrUserAgentValue = "go-resty/" + Version + " (https://github.com/kot0/resty)"
+	hdrUserAgentValue = "kot0/" + Version + " (https://github.com/kot0/resty)"
 	bufPool           = &sync.Pool{New: func() interface{} { return &bytes.Buffer{} }}
 )
 
@@ -245,7 +245,7 @@ func (c *Client) SetCookieJar(jar http.CookieJar) *Client {
 // SetCookie method appends a single cookie in the client instance.
 // These cookies will be added to all the request raised from this client instance.
 // 		client.SetCookie(&http.Cookie{
-// 					Name:"go-resty",
+// 					Name:"kot0",
 //					Value:"This is cookie value",
 // 				})
 func (c *Client) SetCookie(hc *http.Cookie) *Client {
@@ -257,11 +257,11 @@ func (c *Client) SetCookie(hc *http.Cookie) *Client {
 // These cookies will be added to all the request raised from this client instance.
 // 		cookies := []*http.Cookie{
 // 			&http.Cookie{
-// 				Name:"go-resty-1",
+// 				Name:"kot0-1",
 // 				Value:"This is cookie 1 value",
 // 			},
 // 			&http.Cookie{
-// 				Name:"go-resty-2",
+// 				Name:"kot0-2",
 // 				Value:"This is cookie 2 value",
 // 			},
 // 		}
@@ -328,8 +328,8 @@ func (c *Client) SetFormData(data map[string]string) *Client {
 // SetBasicAuth method sets the basic authentication header in the HTTP request. For Example:
 //		Authorization: Basic <base64-encoded-value>
 //
-// For Example: To set the header for username "go-resty" and password "welcome"
-// 		client.SetBasicAuth("go-resty", "welcome")
+// For Example: To set the header for username "kot0" and password "welcome"
+// 		client.SetBasicAuth("kot0", "welcome")
 //
 // This basic auth information gets added to all the request rasied from this client instance.
 // Also it can be overridden or set one at the request level is supported.

@@ -504,7 +504,7 @@ func createGenServer(t *testing.T) *httptest.Server {
 		if r.Method == MethodOptions && r.URL.Path == "/options" {
 			w.Header().Set("Access-Control-Allow-Origin", "localhost")
 			w.Header().Set("Access-Control-Allow-Methods", "PUT, PATCH")
-			w.Header().Set("Access-Control-Expose-Headers", "x-go-resty-id")
+			w.Header().Set("Access-Control-Expose-Headers", "x-kot0-id")
 			w.WriteHeader(http.StatusOK)
 			return
 		}

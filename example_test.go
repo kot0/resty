@@ -16,8 +16,6 @@ import (
 	"time"
 
 	"golang.org/x/net/proxy"
-
-	"github.com/kot0/resty/v2"
 )
 
 type DropboxError struct {
@@ -128,7 +126,7 @@ func Example_dropboxUpload() {
 	// Create a resty client
 	client := resty.New()
 
-	// See we are not setting content-type header, since go-resty automatically detects Content-Type for you
+	// See we are not setting content-type header, since kot0 automatically detects Content-Type for you
 	resp, err := client.R().
 		SetBody(fileBytes).     // resty autodetects content type
 		SetContentLength(true). // Dropbox expects this value
@@ -151,7 +149,7 @@ func Example_put() {
 	// No need to set auth token, error, if you have client level settings
 	resp, err := client.R().
 		SetBody(Article{
-			Title:   "go-resty",
+			Title:   "kot0",
 			Content: "This is my article content, oh ya!",
 			Author:  "Jeevanandam M",
 			Tags:    []string{"article", "sample", "resty"},

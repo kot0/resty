@@ -136,7 +136,7 @@ func TestPostJSONStringSuccess(t *testing.T) {
 
 	c := dc()
 	c.SetHeader(hdrContentTypeKey, "application/json; charset=utf-8").
-		SetHeaders(map[string]string{hdrUserAgentKey: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) go-resty v0.1", hdrAcceptKey: "application/json; charset=utf-8"})
+		SetHeaders(map[string]string{hdrUserAgentKey: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) kot0 v0.1", hdrAcceptKey: "application/json; charset=utf-8"})
 
 	resp, err := c.R().
 		SetBody(`{"username":"testuser", "password":"testpass"}`).
@@ -164,7 +164,7 @@ func TestPostJSONBytesSuccess(t *testing.T) {
 
 	c := dc()
 	c.SetHeader(hdrContentTypeKey, "application/json; charset=utf-8").
-		SetHeaders(map[string]string{hdrUserAgentKey: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) go-resty v0.7", hdrAcceptKey: "application/json; charset=utf-8"})
+		SetHeaders(map[string]string{hdrUserAgentKey: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) kot0 v0.7", hdrAcceptKey: "application/json; charset=utf-8"})
 
 	resp, err := c.R().
 		SetBody([]byte(`{"username":"testuser", "password":"testpass"}`)).
@@ -864,18 +864,18 @@ func TestGetWithCookie(t *testing.T) {
 	c := dcl()
 	c.SetHostURL(ts.URL)
 	c.SetCookie(&http.Cookie{
-		Name:  "go-resty-1",
+		Name:  "kot0-1",
 		Value: "This is cookie 1 value",
 	})
 
 	resp, err := c.R().
 		SetCookie(&http.Cookie{
-			Name:  "go-resty-2",
+			Name:  "kot0-2",
 			Value: "This is cookie 2 value",
 		}).
 		SetCookies([]*http.Cookie{
 			{
-				Name:  "go-resty-1",
+				Name:  "kot0-1",
 				Value: "This is cookie 1 value additional append",
 			},
 		}).
@@ -898,11 +898,11 @@ func TestGetWithCookies(t *testing.T) {
 	tu, _ := url.Parse(ts.URL)
 	c.GetClient().Jar.SetCookies(tu, []*http.Cookie{
 		{
-			Name:  "jar-go-resty-1",
+			Name:  "jar-kot0-1",
 			Value: "From Jar - This is cookie 1 value",
 		},
 		{
-			Name:  "jar-go-resty-2",
+			Name:  "jar-kot0-2",
 			Value: "From Jar - This is cookie 2 value",
 		},
 	})
@@ -914,18 +914,18 @@ func TestGetWithCookies(t *testing.T) {
 	// Client cookies
 	c.SetCookies([]*http.Cookie{
 		{
-			Name:  "go-resty-1",
+			Name:  "kot0-1",
 			Value: "This is cookie 1 value",
 		},
 		{
-			Name:  "go-resty-2",
+			Name:  "kot0-2",
 			Value: "This is cookie 2 value",
 		},
 	})
 
 	resp, err = c.R().
 		SetCookie(&http.Cookie{
-			Name:  "req-go-resty-1",
+			Name:  "req-kot0-1",
 			Value: "This is request cookie 1 value additional append",
 		}).
 		Get("mypage2")
@@ -1058,7 +1058,7 @@ func TestOptionsMethod(t *testing.T) {
 
 	assertError(t, err)
 	assertEqual(t, http.StatusOK, resp.StatusCode())
-	assertEqual(t, resp.Header().Get("Access-Control-Expose-Headers"), "x-go-resty-id")
+	assertEqual(t, resp.Header().Get("Access-Control-Expose-Headers"), "x-kot0-id")
 }
 
 func TestPatchMethod(t *testing.T) {
@@ -1102,7 +1102,7 @@ func TestSendMethod(t *testing.T) {
 		assertEqual(t, http.StatusOK, resp.StatusCode())
 
 		assertEqual(t, "", resp.String())
-		assertEqual(t, "x-go-resty-id", resp.Header().Get("Access-Control-Expose-Headers"))
+		assertEqual(t, "x-kot0-id", resp.Header().Get("Access-Control-Expose-Headers"))
 	})
 
 	t.Run("send-patch", func(t *testing.T) {
@@ -1396,7 +1396,7 @@ func TestOutputFileWithBaseDirAndRelativePath(t *testing.T) {
 	client.outputLogTo(ioutil.Discard)
 
 	resp, err := client.R().
-		SetOutput("go-resty/test-img-success.png").
+		SetOutput("kot0/test-img-success.png").
 		Get(ts.URL + "/my-image.png")
 
 	assertError(t, err)
@@ -1406,7 +1406,7 @@ func TestOutputFileWithBaseDirAndRelativePath(t *testing.T) {
 
 func TestOutputFileWithBaseDirError(t *testing.T) {
 	c := dc().SetRedirectPolicy(FlexibleRedirectPolicy(10)).
-		SetOutputDirectory(filepath.Join(getTestDataPath(), `go-resty\0`))
+		SetOutputDirectory(filepath.Join(getTestDataPath(), `kot0\0`))
 
 	_ = c
 }
@@ -1432,10 +1432,10 @@ func TestOutputPathDirNotExists(t *testing.T) {
 func TestOutputFileAbsPath(t *testing.T) {
 	ts := createGetServer(t)
 	defer ts.Close()
-	defer cleanupFiles(filepath.Join(".testdata", "go-resty"))
+	defer cleanupFiles(filepath.Join(".testdata", "kot0"))
 
 	_, err := dcr().
-		SetOutput(filepath.Join(getTestDataPath(), "go-resty", "test-img-success-2.png")).
+		SetOutput(filepath.Join(getTestDataPath(), "kot0", "test-img-success-2.png")).
 		Get(ts.URL + "/my-image.png")
 
 	assertError(t, err)
