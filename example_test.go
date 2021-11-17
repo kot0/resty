@@ -7,6 +7,7 @@ package resty_test
 import (
 	"crypto/tls"
 	"fmt"
+	"github.com/go-resty/resty/v2"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -16,7 +17,7 @@ import (
 
 	"golang.org/x/net/proxy"
 
-	"github.com/go-resty/resty/v2"
+	"github.com/kot0/resty/v2"
 )
 
 type DropboxError struct {
