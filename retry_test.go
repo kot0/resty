@@ -55,7 +55,7 @@ func TestBackoffNoWaitForLastRetry(t *testing.T) {
 		externalCounter++
 		return resp, nil
 	}, RetryConditions([]RetryConditionFunc{func(response *Response, err error) bool {
-		if externalCounter == attempts + numRetries {
+		if externalCounter == attempts+numRetries {
 			// Backoff returns context canceled if goes to sleep after last retry.
 			cancel()
 		}
