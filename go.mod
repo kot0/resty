@@ -1,4 +1,4 @@
-module github.com/go-resty/resty/v2
+module github.com/kot0/resty/v2
 
 require (
 	github.com/andybalholm/brotli v1.0.4
