@@ -13,6 +13,7 @@ import (
 	"encoding/xml"
 	"errors"
 	"fmt"
+	"github.com/andybalholm/brotli"
 	"io"
 	"io/ioutil"
 	"math"
@@ -955,6 +956,12 @@ func (c *Client) execute(req *Request) (*Response, error) {
 				}
 				defer closeq(body)
 			}
+		}
+
+		//brotli compression support
+		if strings.EqualFold(resp.Header.Get(hdrContentEncodingKey), "br") && resp.ContentLength != 0 {
+			body = ioutil.NopCloser(brotli.NewReader(body))
+			defer closeq(body)
 		}
 
 		if response.body, err = ioutil.ReadAll(body); err != nil {
